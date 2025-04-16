@@ -31,26 +31,35 @@ class _MapExampleState extends State<MapExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FlutterMap(
-        mapController: _mapController,
-        options: MapOptions(
-          center: LatLng(37.7749, -122.4194),
-          zoom: 13,
-          rotation: 45,
-        ),
+    return SafeArea(
+      child: Stack(
         children: [
-          TileLayer(
-            urlTemplate: 'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',
-          ),
-          Positioned(
-            right: 16,
-            top: 60, child: Column(children: [
-            CompassButton(
+          FlutterMap(
               mapController: _mapController,
-              size: 60,
-            )
-          ],),)
+              options: MapOptions(
+                maxZoom: 21.0,
+                minZoom: 3.0,
+                center: LatLng(36.884804, 30.704044),
+                zoom: 13,
+              ),
+              children: [
+                TileLayer(
+                  maxZoom: 21,
+                  urlTemplate:
+                  "http://{s}.google.com/vt/lyrs=r&x={x}&y={y}&z={z}",
+                  subdomains: const ['mt0', 'mt1', 'mt2', 'mt3'],
+                  additionalOptions: const {
+                    'layers': 'streets',
+                  },
+                ),
+
+              ]),
+          Positioned(
+              right: 16,
+              top: 60,
+              child: CompassButton(
+                mapController: _mapController,
+              )),
         ],
       ),
     );
