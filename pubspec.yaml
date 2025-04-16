@@ -1,7 +1,9 @@
 name: flutter_map_animated_compass
 description: "A customizable animated compass widget for flutter_map that resets rotation to north."
-version: 0.0.1
-homepage:
+repository: https://github.com/karacaemre/flutter_map_animated_compass
+version: 1.0.0
+homepage: https://github.com/karacaemre/flutter_map_animated_compass
+
 
 environment:
   sdk: ^3.6.1
@@ -25,8 +27,8 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
-   assets:
-     - assets/compass.png
+  assets:
+    - assets/compass.png
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see
